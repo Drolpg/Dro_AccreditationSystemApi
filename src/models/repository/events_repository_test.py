@@ -1,27 +1,27 @@
 import pytest
+from .attendees_repository import AttendeesRepository
 from src.models.settings.connection import db_connection_handler
-from .events_repository import EventsRepository
 
 db_connection_handler.connect_to_db()
 
 @pytest.mark.skip(reason="Novo registro em banco de dados")
-def test_insert_event():
-    event ={
-        "uuid": "meu-uuid-e-nois3",
-        "title": "meu title3",
-        "slug": "meu slug3",
-        "maximum_attendees": 21
+def test_insert_attendee():
+    event_id = "meu-uuid-e-nois"
+    attendees_info = {
+        "uuid": "meu_uuid_attendee3",
+        "name": "atendee name3",
+        "email": "email3@email.com",
+        "event_id": event_id
     }
-
-
-    events_repository = EventsRepository()
-    response = events_repository.insert_event(event)
+    attendees_repository = AttendeesRepository()
+    response = attendees_repository.insert_attendee(attendees_info)
     print(response)
 
-@pytest.mark.skip(reason="Não necessita")
-def test_get_event_by_id():
-    event_id = "meu-uuid-e-nois3"
-    events_repository = EventsRepository()
-    response = events_repository.get_event_by_id(event_id)
-    print(response)
-    # print(response.title)
+@pytest.mark.skip(reason="...")
+def test_get_attendee_badge_by_id():
+    attendde_id = "meu_uuid_attendee"
+    attendees_repository = AttendeesRepository()
+    attendee = attendees_repository.get_attendee_badge_by_id(attendde_id)
+
+    print(attendee)
+    print(attendee.title)
