@@ -3,12 +3,12 @@ from sqlalchemy import Column, String, DateTime, ForeignKey
 from sqlalchemy.sql import func
 
 class Attendees(Base):
-    __tablename__ = 'attentees'
+    __tablename__ = "attendees"
 
     id = Column(String, primary_key=True)
     name = Column(String, nullable=False)
     email = Column(String, nullable=False)
-    even_id = Column(String, ForeignKey("events.id"))
+    event_id = Column(String, ForeignKey("events.id"))
     created_at = Column(DateTime, default=func.now())
 
     def __repr__(self):

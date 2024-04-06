@@ -1,12 +1,12 @@
 from typing import Dict
-from src.models.settings.connection import db_connection_hamdler
+from src.models.settings.connection import db_connection_handler
 from src.models.entities.events import Events
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm.exc import NoResultFound
 
 class EventsRepository:
     def insert_event(self, eventsInfo: Dict) -> Dict:
-        with db_connection_hamdler as database:
+        with db_connection_handler as database:
             try:
                 event = Events(
                     id=eventsInfo.get("uuid"),
@@ -28,7 +28,7 @@ class EventsRepository:
 
 
     def get_event_by_id(self, event_id: str) -> Events:
-        with db_connection_hamdler as database:
+        with db_connection_handler as database:
             try:
                 event = (
                     database.session

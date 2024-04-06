@@ -27,4 +27,4 @@ class __DBConnectionHandler:
 
 
 
-db_connection_hamdler = __DBConnectionHandler()
+db_connection_handler = __DBConnectionHandler()
