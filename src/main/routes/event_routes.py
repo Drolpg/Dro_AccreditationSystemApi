@@ -28,5 +28,3 @@ def get_event(event_id):
     except Exception as exception:
         http_response = handle_error(exception)
         return jsonify(http_response.body), http_response.status_code
-    
-    # return jsonify({"Ola": "Mundo"})
